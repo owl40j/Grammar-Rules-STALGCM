@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../print.xsl" ?>
+<?xml-stylesheet type="text/css" href="../rules.css" title="Easy editing stylesheet" ?>
+<rules lang="tl" xsi:noNamespaceSchemaLocation="../rules.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema">   
+    <category name="Filipino Text Shortcut">    
+        <rule id="ITO" name="ito">
+            <pattern case_sensitive="no">
+                <token regexp="yes">etoh*|itoh+|toh+</token>
+            </pattern>
+            <message>
+                Using shortcuts for ito is incorrect. It must be <suggestion><match no="1" regexp_match="(?i)etoh*|itoh+|toh+" case_conversion="startlower" regexp_replace="ito"/></suggestion>
+            </message>
+            <short>ITO Correction</short>
+            <example correction="ito" type="incorrect">Bakit <marker>eto</marker> yung binili mo kuya?</example>
+            <example type="correct">Bakit ito yung binili mo kuya?.</example>
+            <example correction="ito" type="incorrect">Ano <marker>toh</marker>?</example>
+            <example type="correct">Ano ito?</example>
+            <example correction="ito" type="incorrect">Saan <marker>itoh</marker>?</example>
+            <example type="correct">Saan ito?</example>
+        </rule>
+
+        <rule id="ABI" name="abi">
+            <pattern case_sensitive="no">
+                <token regexp="yes">[a-z]+abe<exception regexp="yes">arabe|grabe</exception></token>
+            </pattern>
+            <message>
+                Words using abe shortcuts are incorrect. Correct form is <suggestion><match no="1" regexp_match="(?i)([a-z]+)abe" case_conversion="startlower" regexp_replace="$1abi"/></suggestion>
+            </message>
+            <short>ABI Correction</short>
+            <example correction="Gabi" type="incorrect"><marker>Gabe</marker> na, uwi ka na.</example>
+            <example type="correct">Gabi na, uwi ka na.</example>
+            <example correction="sinasabi" type="incorrect">Ano <marker>sinasabe</marker> mo?</example>
+            <example type="correct">Ano sinasabi mo?</example>
+            <example correction="labi" type="incorrect">Ang pula ng <marker>labe</marker> mo!</example>
+            <example type="correct">Ang pula ng labi mo!</example>
+        </rule>
+
+        <rule id="KIT" name="kit">
+            <pattern case_sensitive="no">
+                <token regexp="yes">[a-z]+ket<exception regexp="yes">raket|tiket|piket|kriket|blangket|dyaket</exception></token>
+            </pattern>
+            <message>
+                Words using "ket" endings are incorrect. The standard form is <suggestion><match no="1" regexp_match="(?i)([a-z]+)ket" case_conversion="startlower" regexp_replace="$1kit"/></suggestion>
+            </message>
+            <short>KIT Correction</short>
+            <example correction="sakit" type="incorrect">Ang <marker>saket</marker> ng ulo ko.</example>
+            <example type="correct">Ang sakit ng ulo ko.</example>
+            <example correction="Bakit" type="incorrect"><marker>Baket</marker> ka umalis?</example>
+            <example type="correct">Bakit ka umalis?</example>
+            <example correction="sungkit" type="incorrect">Asan na ang <marker>sungket</marker>?</example>
+            <example type="correct">Asan na ang sungkit?</example>
+        </rule>
+    </category>
+</rules>
